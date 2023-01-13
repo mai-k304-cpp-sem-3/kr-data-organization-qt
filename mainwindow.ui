@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>652</width>
+    <height>781</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>632</width>
+      <height>744</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="groupLayout">
+       <item>
+        <widget class="QLabel" name="labelGroup">
+         <property name="text">
+          <string>Группы:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidgetGroups">
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Id</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Кол-во</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Номер</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Сдача</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Считать с файла</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableView" name="tableView_2"/>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <layout class="QVBoxLayout" name="professorsLayout">
+       <item>
+        <widget class="QLabel" name="labelProfessors">
+         <property name="text">
+          <string>Преподователи:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidgetProfessors">
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Id</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Имя</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Фамилия</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Приём</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_7">
+           <property name="text">
+            <string>Считать с файла</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableView" name="tableView_3"/>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="0">
+      <layout class="QGridLayout" name="workLayout">
+       <item row="3" column="1" colspan="2">
+        <widget class="QPushButton" name="fileReadButton">
+         <property name="text">
+          <string>Считать с файла</string>
+         </property>
+         <property name="icon">
+          <iconset theme="folder"/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QComboBox" name="choiceDBBox">
+         <item>
+          <property name="text">
+           <string>Преподователи</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Группы</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <widget class="QPushButton" name="findButton">
+         <property name="text">
+          <string>Найти по значению</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-find"/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLabel" name="workLabel">
+         <property name="text">
+          <string>Работа с базами данных</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QPushButton" name="deleteListButton">
+         <property name="text">
+          <string>Удалить список</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-delete"/>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="2">
+        <widget class="QPushButton" name="findIdButton">
+         <property name="text">
+          <string>Найти по id</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-find"/>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="choiceLineEdit"/>
+       </item>
+       <item row="7" column="2">
+        <widget class="QPushButton" name="setButton">
+         <property name="text">
+          <string>Задать значение</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-paste"/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="choiceDataBox">
+         <item>
+          <property name="text">
+           <string>Имя</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Фамилия</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="QPushButton" name="deletePageButton">
+         <property name="minimumSize">
+          <size>
+           <width>64</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Удалить элемент</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-delete"/>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="choiceIdBox"/>
+       </item>
+       <item row="11" column="1">
+        <widget class="QPushButton" name="autor">
+         <property name="text">
+          <string>Автор</string>
+         </property>
+         <property name="icon">
+          <iconset theme="face-smile"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="1">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="professorsTab">
+          <attribute name="title">
+           <string>Tab 1</string>
+          </attribute>
+          <widget class="QWidget" name="gridLayoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>341</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="professorAddLayout">
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="professorAddSurnameLineEdit"/>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="professorAddNameLineEdit"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="professorAddNamelabel">
+              <property name="text">
+               <string>Имя</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="professorAddSurnamelabel">
+              <property name="text">
+               <string>Фамилия</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="groupTab">
+          <attribute name="title">
+           <string>Tab 2</string>
+          </attribute>
+          <widget class="QWidget" name="gridLayoutWidget_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>341</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="groupAddLayout">
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="groupAddNameLineEdit"/>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="groupAddCountLineEdit"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="groupAddCountlabel">
+              <property name="text">
+               <string>Кол-во</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="groupAddNamelabel">
+              <property name="text">
+               <string>Номер</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="addButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Добавить элемент</string>
+         </property>
+         <property name="icon">
+          <iconset theme="contact-new"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
