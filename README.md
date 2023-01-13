@@ -1,0 +1,1 @@
+# kr-data-organization-qt
