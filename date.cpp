@@ -1,7 +1,8 @@
 #include <iostream>
+#include "date.h"
 
-bool isCorrect(date* _date) {
-    if ((_date->mon > 0) && (_date->mon < 12)) {
+//bool isCorrect(date* _date) {
+    /*if ((_date->mon > 0) && (_date->mon < 12)) {
         if ((_date->hour > 0) && (_date->hour < 24)) {
             if ((_date->min > 0) && (_date->min < 60)) {
                 if (_date->mon%2 == 0) {
@@ -33,5 +34,5 @@ bool isCorrect(date* _date) {
         }
     } else {
         return false;
-    }
-}
+    }*/
+//}

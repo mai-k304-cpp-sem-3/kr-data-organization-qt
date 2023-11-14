@@ -3,35 +3,41 @@
 #include <iomanip>
 
 #include "examination.h"
+#include "date.h"
 
 using namespace std;
 
+bool isEqualDate(date* _date1, date* _date2) {
+    if ((_date1->mon == _date2->mon) && (_date1->day == _date2->day) && (_date1->hour == _date2->hour) && (_date1->min == _date2->min)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Добавление нового элемента в список принятия экзамена
 void addExaminationAccepts(examinationAccepts** start, int _idProfessor, string _item, int _classroom, date _dateDelivery, date _dateRetake) {
-    bool New = false;
+    bool isNew = false; // Новый ли список
     examinationAccepts* current;
-    examinationAccepts* newExaminationAccepts = new examinationAccepts;
+    int i = 1;
 
+    // Если списка нет то создаем его первый элемент
     if (*start == NULL) {
         *start = new examinationAccepts;
-        (*examinationAccepts)->next = *start;
-        New = true;
+        isNew = true;
     }
 
-    current = *examinationAccepts;
+    current = *start;
 
-    int i = 0;
-    if (!New) {
-        while (current->next != *newExaminationAccepts) {
+    if (!isNew) {
+        while (current->next != NULL) {
             current = current->next;
-            i = current->id;
         }
-        i++;
-        newExaminationAccepts->next = current->next;
-        current->next = newExaminationAccepts;
+        i = current->id + 1;
+        current->next = new examinationAccepts;
         current = current->next;
     }
-    current->id = i;
+    current->id = i++;
     current->idProfessor = _idProfessor;
     current->item = _item;
     current->classroom = _classroom;
@@ -57,7 +63,7 @@ void deletePageExaminationAccepts(examinationAccepts** start, int _id) { // Уд
                 current->next = current->next->next;
             }
             delete del;
-            return true;
+            //return true;
         }
     }
 }
@@ -117,8 +123,14 @@ void fileReadExaminationAccepts(examinationAccepts** start, string fileName) {
                 ifs >> current->idProfessor;
                 ifs >> current->item;
                 ifs >> current->classroom;
-                ifs >> current->dateDelivery;
-                ifs >> current->dateRetake;
+                ifs >> current->dateDelivery.mon;
+                ifs >> current->dateDelivery.day;
+                ifs >> current->dateDelivery.hour;
+                ifs >> current->dateDelivery.min;
+                ifs >> current->dateRetake.mon;
+                ifs >> current->dateRetake.day;
+                ifs >> current->dateRetake.hour;
+                ifs >> current->dateRetake.min;
             }
         }
         current->next = *start;
@@ -139,7 +151,7 @@ void setIdProfessorExaminationAccepts(examinationAccepts* start, int _id, int _i
 }
 
 // Установка предмета в списке принятия экзамена
-void setItemExaminationAccepts(examinationAccepts* start, string _item) {
+void setItemExaminationAccepts(examinationAccepts* start, int _id, string _item) {
     examinationAccepts* current = start;
     while ((current->next) && (current->id != _id)) {
         current = current->next;
@@ -209,7 +221,7 @@ examinationAccepts* findIdProfessorExaminationAccepts(examinationAccepts* start,
 }
 
 // Поиск элемента по предмету в списке принятия экзамена
-examinationAccepts* findItemExaminationAccepts(examinationAccepts* start, int itemKey) {
+examinationAccepts* findItemExaminationAccepts(examinationAccepts* start, string itemKey) {
     examinationAccepts* current = start;
     while ((current->next) && (current->item != itemKey)) {
         current = current->next;
@@ -235,12 +247,12 @@ examinationAccepts* findClassroomExaminationAccepts(examinationAccepts* start, s
 }
 
 // Поиск элемента по дате сдачи в списке принятия экзамена
-examinationAccepts* findDateDeliveryExaminationAccepts(examinationAccepts* start, string dateDeliveryKey) {
+examinationAccepts* findDateDeliveryExaminationAccepts(examinationAccepts* start, date dateDeliveryKey) {
     examinationAccepts* current = start;
-    while ((current->next) && (current->dateDelivery != dateDeliveryKey)) {
+    while ((current->next) && isEqualDate(&(current->dateDelivery), &dateDeliveryKey)) {
         current = current->next;
     }
-    if (current->dateDelivery == dateDeliveryKey) {
+    if (isEqualDate(&(current->dateDelivery), &dateDeliveryKey)) {
         return current;
     } else {
         return NULL;
@@ -248,12 +260,12 @@ examinationAccepts* findDateDeliveryExaminationAccepts(examinationAccepts* start
 }
 
 // Поиск элемента по дате пересдачи в списке принятия экзамена
-examinationAccepts* findDateRetakeExaminationAccepts(examinationAccepts* start, string dateRetakeKey) {
+examinationAccepts* findDateRetakeExaminationAccepts(examinationAccepts* start, date dateRetakeKey) {
     examinationAccepts* current = start;
-    while ((current->next) && (current->dateRetake != dateRetakeKey)) {
+    while ((current->next) && isEqualDate(&(current->dateRetake), &dateRetakeKey)) {
         current = current->next;
     }
-    if (current->dateRetake == dateRetakeKey) {
+    if (isEqualDate(&(current->dateRetake), &dateRetakeKey)) {
         return current;
     } else {
         return NULL;
@@ -262,30 +274,27 @@ examinationAccepts* findDateRetakeExaminationAccepts(examinationAccepts* start, 
 
 // Добавление нового элемента в список сдачи экзамена
 void addExaminationTaking(examinationTaking** start, int _idGroup, string _item, int _classroom, date _dateDelivery, date _dateRetake) {
-    bool New = false;
+    bool isNew = false; // Новый ли список
     examinationTaking* current;
-    examinationTaking* newExaminationTaking = new examinationTaking;
+    int i = 1;
 
+    // Если списка нет то создаем его первый элемент
     if (*start == NULL) {
         *start = new examinationTaking;
-        (*examinationTaking)->next = *examinationTaking;
-        New = true;
+        isNew = true;
     }
 
-    current = *examinationTaking;
+    current = *start;
 
-    int i = 0;
-    if (!New) {
-        while (current->next != *newExaminationTaking) {
+    if (!isNew) {
+        while (current->next != NULL) {
             current = current->next;
-            i = current->id;
         }
-        i++;
-        newExaminationTaking->next = current->next;
-        current->next = newExaminationTaking;
+        i = current->id + 1;
+        current->next = new examinationTaking;
         current = current->next;
     }
-    current->id = i;
+    current->id = i++;
     current->idGroup = _idGroup;
     current->item = _item;
     current->classroom = _classroom;
@@ -311,7 +320,7 @@ void deletePageExaminationTaking(examinationTaking** start, int _id) { // Уда
                 current->next = current->next->next;
             }
             delete del;
-            return true;
+            //return true;
         }
     }
 }
@@ -371,8 +380,14 @@ void fileReadExaminationTaking(examinationTaking** start, string fileName) {
                 ifs >> current->idGroup;
                 ifs >> current->item;
                 ifs >> current->classroom;
-                ifs >> current->dateDelivery;
-                ifs >> current->dateRetake;
+                ifs >> current->dateDelivery.mon;
+                ifs >> current->dateDelivery.day;
+                ifs >> current->dateDelivery.hour;
+                ifs >> current->dateDelivery.min;
+                ifs >> current->dateRetake.mon;
+                ifs >> current->dateRetake.day;
+                ifs >> current->dateRetake.hour;
+                ifs >> current->dateRetake.min;
             }
         }
         current->next = *start;
@@ -393,7 +408,7 @@ void setIdGroupExaminationTaking(examinationTaking* start, int _id, int _idGroup
 }
 
 // Установка предмета в списке сдачи экзамена
-void setItemExaminationTaking(examinationTaking* start, string _item) {
+void setItemExaminationTaking(examinationTaking* start, int _id, string _item) {
     examinationTaking* current = start;
     while ((current->next) && (current->id != _id)) {
         current = current->next;
@@ -463,7 +478,7 @@ examinationTaking* findIdProfessorExaminationTaking(examinationTaking* start, in
 }
 
 // Поиск элемента по предмету в списке сдачи экзамена
-examinationTaking* findItemExaminationTaking(examinationTaking* start, int itemKey) {
+examinationTaking* findItemExaminationTaking(examinationTaking* start, string itemKey) {
     examinationTaking* current = start;
     while ((current->next) && (current->item != itemKey)) {
         current = current->next;
@@ -489,12 +504,12 @@ examinationTaking* findClassroomExaminationTaking(examinationTaking* start, stri
 }
 
 // Поиск элемента по дате сдачи в списке сдачи экзамена
-examinationTaking* findDateDeliveryExaminationTaking(examinationTaking* start, string dateDeliveryKey) {
+examinationTaking* findDateDeliveryExaminationTaking(examinationTaking* start, date dateDeliveryKey) {
     examinationTaking* current = start;
-    while ((current->next) && (current->dateDelivery != dateDeliveryKey)) {
+    while ((current->next) && isEqualDate(&(current->dateDelivery), &dateDeliveryKey)) {
         current = current->next;
     }
-    if (current->dateDelivery == dateDeliveryKey) {
+    if (isEqualDate(&(current->dateDelivery), &dateDeliveryKey)) {
         return current;
     } else {
         return NULL;
@@ -502,12 +517,12 @@ examinationTaking* findDateDeliveryExaminationTaking(examinationTaking* start, s
 }
 
 // Поиск элемента по дате пересдачи в списке сдачи экзамена
-examinationTaking* findDateRetakeExaminationTaking(examinationTaking* start, string dateRetakeKey) {
+examinationTaking* findDateRetakeExaminationTaking(examinationTaking* start, date dateRetakeKey) {
     examinationTaking* current = start;
-    while ((current->next) && (current->dateRetake != dateRetakeKey)) {
+    while ((current->next) && isEqualDate(&(current->dateRetake), &dateRetakeKey)) {
         current = current->next;
     }
-    if (current->dateRetake == dateRetakeKey) {
+    if (isEqualDate(&(current->dateRetake), &dateRetakeKey)) {
         return current;
     } else {
         return NULL;

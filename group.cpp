@@ -160,7 +160,7 @@ group* findCountGroup(group* start, int countKey) {
 }
 
 // Поиск элементов по названию группы
-group* findNameGroupr(group* start, string nameKey) {
+group* findNameGroup(group* start, string nameKey) {
     group* current = start;
     while ((current->next) && (current->name != nameKey)) {
         current = current->next;

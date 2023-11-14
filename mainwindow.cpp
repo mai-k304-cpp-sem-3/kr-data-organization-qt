@@ -9,8 +9,8 @@ const string EXAMINATIONS_FILE_NAME = "examinations.txt";
 const string PROFESSOR_FILE_NAME = "professors.txt";
 const string GROUP_FILE_NAME = "groups.txt";
 
-professor* professors = new professor;
-group* groups = new group;
+professor* professors = NULL;
+group* groups = NULL;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -69,6 +69,7 @@ void MainWindow::on_fileReadButton_clicked() {
 void MainWindow::on_deleteListButton_clicked() {
     if (ui->choiceDBBox->currentText() == QString::fromStdString("Преподователи")) {
         deleteListProfessor(&professors);
+        //deleteListProfessor(&professors);
         ui->tableWidgetProfessors->clear();
         QStringList headers;
         headers << "Id" << "Имя" << "Фамилия";

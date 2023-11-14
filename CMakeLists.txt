@@ -17,14 +17,14 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        date.cpp
-        date.h
-        examination.cpp
-        examination.h
         professor.cpp
         professor.h
         group.cpp
         group.h
+        examination.cpp
+        examination.h
+        date.cpp
+        date.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

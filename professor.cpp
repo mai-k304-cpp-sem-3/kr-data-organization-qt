@@ -8,27 +8,27 @@ using namespace std;
 
 // Добавление нового элемента в список
 void addPageProfessor(professor** start, string _name, string _surname) {
-	bool isNew = false; // Новый ли список
-	professor* current;
+    bool isNew = false; // Новый ли список
+    professor* current = *start;
 	int i = 1;
 
 	// Если списка нет то создаем его первый элемент
-	if (*start == NULL) {
+    if (*start == NULL) {
 		*start = new professor;
 		isNew = true;
 	}
-	current = *start;
+    current = *start;
 
 	//Если список не новый, то идем в конец и создаем новый элемент в конце списка
-	if (!isNew) {
+    if (!isNew) {
 		while (current->next != NULL) {
 			current = current->next;
 		}
 		i = current->id + 1;
 		current->next = new professor;
 		current = current->next;
-	}
-	current->id = i++;
+    }
+    current->id = i++;
 	current->name = _name;
     current->surname = _surname;
 }
@@ -63,7 +63,7 @@ void deletePageProfessor(professor** start, int _id) {
 void deleteListProfessor(professor** start) {
     professor* current = *start; // Вспомогательный эллемент для движения по списку
 	while (current != NULL) { // Пока есть элемент
-		current = current->next; // Движение по списку
+        current = current->next; // Движение по списку
         delete *start; // Удаление корня
         *start = current; // Обозначения первого элемента списка как корень
 	}
@@ -86,6 +86,7 @@ void fileReadProfessor(professor** start, string fileName) {
 				current = current->next;
 			}
 		}
+        int i = 0;
 		while (!ifs.eof()) { // И если он открылся считываем данные из него
 			ifs >> temp;
 			if (temp == "") { // Проверка на то, считается ли хоть что - нибудь
@@ -98,11 +99,12 @@ void fileReadProfessor(professor** start, string fileName) {
 			else {
 				isNew = false;
 			}
-			if (!ifs.eof()) { // И если файл не кончился то считываем данные в наш пустой элемент
-				current->id = stoi(temp);
+            if (!ifs.eof()) { // И если файл не кончился то считываем данные в наш пустой элемент
+                current->id = i;
 				temp = "";
 				ifs >> current->name;
                 ifs >> current->surname;
+                i++;
 			}
 		}
     } else {

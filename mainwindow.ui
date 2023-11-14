@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>КР Организация данных</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="gridLayoutWidget">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>632</width>
-      <height>744</height>
+      <height>751</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -147,137 +147,16 @@
        </item>
       </layout>
      </item>
-     <item row="3" column="0">
-      <layout class="QGridLayout" name="workLayout">
-       <item row="3" column="1" colspan="2">
-        <widget class="QPushButton" name="fileReadButton">
-         <property name="text">
-          <string>Считать с файла</string>
-         </property>
-         <property name="icon">
-          <iconset theme="folder"/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="2">
-        <widget class="QComboBox" name="choiceDBBox">
-         <item>
-          <property name="text">
-           <string>Преподователи</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Группы</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="11" column="2">
-        <widget class="QPushButton" name="findButton">
-         <property name="text">
-          <string>Найти по значению</string>
-         </property>
-         <property name="icon">
-          <iconset theme="edit-find"/>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QLabel" name="workLabel">
-         <property name="text">
-          <string>Работа с базами данных</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1" colspan="2">
-        <widget class="QPushButton" name="deleteListButton">
-         <property name="text">
-          <string>Удалить список</string>
-         </property>
-         <property name="icon">
-          <iconset theme="edit-delete"/>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="2">
-        <widget class="QPushButton" name="findIdButton">
-         <property name="text">
-          <string>Найти по id</string>
-         </property>
-         <property name="icon">
-          <iconset theme="edit-find"/>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QLineEdit" name="choiceLineEdit"/>
-       </item>
-       <item row="7" column="2">
-        <widget class="QPushButton" name="setButton">
-         <property name="text">
-          <string>Задать значение</string>
-         </property>
-         <property name="icon">
-          <iconset theme="edit-paste"/>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
-        <widget class="QComboBox" name="choiceDataBox">
-         <item>
-          <property name="text">
-           <string>Имя</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Фамилия</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QPushButton" name="deletePageButton">
-         <property name="minimumSize">
-          <size>
-           <width>64</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Удалить элемент</string>
-         </property>
-         <property name="icon">
-          <iconset theme="edit-delete"/>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QSpinBox" name="choiceIdBox"/>
-       </item>
-       <item row="11" column="1">
-        <widget class="QPushButton" name="autor">
-         <property name="text">
-          <string>Автор</string>
-         </property>
-         <property name="icon">
-          <iconset theme="face-smile"/>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="1">
+     <item row="2" column="1">
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="0">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="professorsTab">
           <attribute name="title">
-           <string>Tab 1</string>
+           <string>Профессор</string>
           </attribute>
           <widget class="QWidget" name="gridLayoutWidget_2">
            <property name="geometry">
@@ -314,7 +193,7 @@
          </widget>
          <widget class="QWidget" name="groupTab">
           <attribute name="title">
-           <string>Tab 2</string>
+           <string>Группа</string>
           </attribute>
           <widget class="QWidget" name="gridLayoutWidget_4">
            <property name="geometry">
@@ -360,7 +239,136 @@
           <string>Добавить элемент</string>
          </property>
          <property name="icon">
-          <iconset theme="contact-new"/>
+          <iconset theme="contact-new">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="0">
+      <layout class="QGridLayout" name="workLayout">
+       <item row="3" column="1" colspan="2">
+        <widget class="QPushButton" name="fileReadButton">
+         <property name="text">
+          <string>Считать с файла</string>
+         </property>
+         <property name="icon">
+          <iconset theme="folder">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QComboBox" name="choiceDBBox">
+         <item>
+          <property name="text">
+           <string>Преподователи</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Группы</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <widget class="QPushButton" name="findButton">
+         <property name="text">
+          <string>Найти по значению</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-find">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLabel" name="workLabel">
+         <property name="text">
+          <string>Работа с базами данных</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QPushButton" name="deleteListButton">
+         <property name="text">
+          <string>Удалить список</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-delete">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="2">
+        <widget class="QPushButton" name="findIdButton">
+         <property name="text">
+          <string>Найти по id</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-find">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="choiceLineEdit"/>
+       </item>
+       <item row="7" column="2">
+        <widget class="QPushButton" name="setButton">
+         <property name="text">
+          <string>Задать значение</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-paste">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="choiceDataBox">
+         <item>
+          <property name="text">
+           <string>Имя</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Фамилия</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="QPushButton" name="deletePageButton">
+         <property name="minimumSize">
+          <size>
+           <width>64</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Удалить элемент</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit-delete">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="choiceIdBox"/>
+       </item>
+       <item row="11" column="1">
+        <widget class="QPushButton" name="autor">
+         <property name="text">
+          <string>Автор</string>
+         </property>
+         <property name="icon">
+          <iconset theme="face-smile">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>

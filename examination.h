@@ -9,13 +9,15 @@
 
 using namespace std;
 
+bool isEqual(date* _date1, date* _date2); // Проверка равности дат
+
 struct examinationAccepts { // Структура принятия экзамена
     int id; // Индекс
     examinationAccepts* back; // Преведущий элемент списка
     examinationAccepts* next; // Следующий элемент списка
     int idProfessor; // ID профессора
     string item; // Предмет
-    int classroom; // Аудитория
+    string classroom; // Аудитория
     date dateDelivery; // Дата сдачи
     date dateRetake; // Дата пересдачи
 };
@@ -54,16 +56,16 @@ examinationAccepts* getPageExaminationAccepts(examinationAccepts* start, int _id
 examinationAccepts* findIdProfessorExaminationAccepts(examinationAccepts* start, int idProfessorsKey);
 
 // Поиск элемента по предмету в списке принятия экзамена
-examinationAccepts* findItemExaminationAccepts(examinationAccepts* start, int itemKey);
+examinationAccepts* findItemExaminationAccepts(examinationAccepts* start, string itemKey);
 
 // Поиск элемента по аудитории в списке принятия экзамена
 examinationAccepts* findClassroomExaminationAccepts(examinationAccepts* start, string classroomKey);
 
 // Поиск элемента по дате сдачи в списке принятия экзамена
-examinationAccepts* findDateDeliveryExaminationAccepts(examinationAccepts* start, string dateDeliveryKey);
+examinationAccepts* findDateDeliveryExaminationAccepts(examinationAccepts* start, date dateDeliveryKey);
 
 // Поиск элемента по дате пересдачи в списке принятия экзамена
-examinationAccepts* findDateRetakeExaminationAccepts(examinationAccepts* start, string dateRetakeKey);
+examinationAccepts* findDateRetakeExaminationAccepts(examinationAccepts* start, date dateRetakeKey);
 
 struct examinationTaking { // Структура сдачи экзамена
     int id; // Индекс
@@ -71,7 +73,7 @@ struct examinationTaking { // Структура сдачи экзамена
     examinationTaking* next; // Следующий элемент списка
     int idGroup; // ID группы
     string item; // Предмет
-    int classroom; // Аудитория
+    string classroom; // Аудитория
     date dateDelivery; // Дата сдачи
     date dateRetake; // Дата пересдачи
 };
@@ -92,16 +94,16 @@ void fileReadExaminationTaking(examinationTaking** start, string fileName);
 void setIdGroupExaminationTaking(examinationTaking* start, int _idGroup);
 
 // Установка предмета в списке сдачи экзамена
-void setItemExaminationTaking(examinationTaking* start, string _item);
+void setItemExaminationTaking(examinationTaking* start, int _id, string _item);
 
 // Установка аудитории в списке сдачи экзамена
 void setClassroomExaminationTaking(examinationTaking* start, int _classroom);
 
 // Установка даты сдачи в списке сдачи экзамена
-void setDateDeliveryExaminationTaking(examinationTaking* start, date _dateDelivery);
+void setDateDeliveryExaminationTaking(examinationTaking* start, int _id, date _dateDelivery);
 
 // Установка даты пересдачи в списке сдачи экзамена
-void setDateRetakeExaminationTaking(examinationTaking* start, date _dateRetake);
+void setDateRetakeExaminationTaking(examinationTaking* start, int _id, date _dateRetake);
 
 // Поиск элемента по id в списке сдачи экзамена
 examinationTaking* getPageExaminationTaking(examinationTaking* start, int _id);
@@ -110,15 +112,15 @@ examinationTaking* getPageExaminationTaking(examinationTaking* start, int _id);
 examinationTaking* findIdGroupExaminationTaking(examinationTaking* start, int idGroupKey);
 
 // Поиск элемента по предмету в списке сдачи экзамена
-examinationTaking* findItemExaminationTaking(examinationTaking* start, int itemKey);
+examinationTaking* findItemExaminationTaking(examinationTaking* start, string itemKey);
 
 // Поиск элемента по аудитории в списке сдачи экзамена
 examinationTaking* findClassroomExaminationTaking(examinationTaking* start, string classroomKey);
 
 // Поиск элемента по дате сдачи в списке сдачи экзамена
-examinationTaking* findDateDeliveryExaminationTaking(examinationTaking* start, string dateDeliveryKey);
+examinationTaking* findDateDeliveryExaminationTaking(examinationTaking* start, date dateDeliveryKey);
 
 // Поиск элемента по дате пересдачи в списке сдачи экзамена
-examinationTaking* findDateRetakeExaminationTaking(examinationTaking* start, string dateRetakeKey);
+examinationTaking* findDateRetakeExaminationTaking(examinationTaking* start, date dateRetakeKey);
 
 #endif
